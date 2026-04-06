@@ -15,6 +15,16 @@ builder.Host.UseSerilog((context, configuration) =>
 builder.Services.AddHttpClient<GitHubOAuthService>();
 builder.Services.AddHttpClient<IGitHubService, GitHubService>();
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
