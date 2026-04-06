@@ -1,0 +1,6 @@
+@GitHubConnector_HostAddress = http://localhost:5124
+
+GET {{GitHubConnector_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
